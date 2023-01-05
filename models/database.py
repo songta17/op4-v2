@@ -23,6 +23,10 @@ class Database:
     def __repr__(self, *args, **kwargs):
         return str(vars(self))
 
+    def create_tournament_db(self):
+        pass
+
+
     # def create_player_db(self):
     #     try:
     #         Database().table_players.insert(self.to_JSON())
