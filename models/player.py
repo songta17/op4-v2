@@ -1,5 +1,5 @@
 """Define player."""
-from database import Database
+from models.database import Database
 import json
 # from pprint import pprint
 
@@ -26,6 +26,16 @@ class Player:
 
     def add_opponent(self, opponent):
         self.opponents.append(opponent)
+
+    def serialize_player(self):
+        return {
+            'national_id': self.national_id,
+            'lastname': self.lastname,
+            'firstname': self.firstname,
+            'dob': self.dob,
+            'score': self.score,
+            'opponents': self.opponents
+        }
 
     # TEST controller
     # def create_player_db(self):
