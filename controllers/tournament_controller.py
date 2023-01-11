@@ -10,8 +10,8 @@ from views.tournament_views import TournamentViews
 
 class TournamentController: 
 
-    def __init__(self, view):
-            self.view = view 
+    def __init__(self):
+            self.view = TournamentViews 
 
     def tournament_creation(self):
         self.view.new_tournament_title_section()
@@ -34,8 +34,8 @@ class TournamentController:
                 # time_control_input
             )
             self.view.tournament_created_msg()
-            database = Database() # dans le constructeur
-            database.table_tournaments.insert(tournament.serialize_tournament())
+            # database = Database() # dans le constructeur
+            # database.table_tournaments.insert(tournament.serialize_tournament())
             MenuViews.redirect_to_menu_msg()
             time.sleep(2)
             return tournament.serialize_tournament()

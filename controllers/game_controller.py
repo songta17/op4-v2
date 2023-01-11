@@ -44,9 +44,9 @@ class GameController:
         self.view.terminal_clearing()
 
         if user_input == "1":
-            self.tournament = TournamentController(TournamentViews).tournament_creation()
+            self.tournament = TournamentController().tournament_creation()
         elif user_input == "2":
-            self.players = PlayerController(PlayerViews).add_player()
+            self.players = PlayerController().add_player()
         elif user_input == "3":
             print("launch the pairs of players generator.")
             self.current_round = RoundController(self.current_round, self.players).generate()

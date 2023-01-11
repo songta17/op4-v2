@@ -4,14 +4,15 @@ import time
 
 from models.player import Player
 from views.menu_views import MenuViews
+from views.player_views import PlayerViews
 
 
 class PlayerController:
     """Player controller."""
 
-    def __init__(self, view):
+    def __init__(self):
         """Init the player controller."""
-        self.view = view
+        self.view = PlayerViews
         self.players = []
 
     def add_player(self):
@@ -34,8 +35,8 @@ class PlayerController:
                     dob_input
                 )
                 self.players.append(player)
-                database = Database()
-                database.table_players.insert(player.serialize_player())
+                # database = Database()
+                # database.table_players.insert(player.serialize_player())
                 self.view.player_added_msg(player_number - 1)
                 time.sleep(1)
                 MenuViews.terminal_clearing()
