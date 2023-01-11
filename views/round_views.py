@@ -13,31 +13,31 @@ class RoundViews:
     def prompt_national_id():
         """Ask for the national_id of a player."""
         print("\nPlease type the player national id: ")
-        print(">", end ='')
+        print(">", end="")
         return input()
 
     def prompt_lastname():
         """Ask for the lastname of a player."""
         print("\nPlease type the player lastname: ")
-        print(">", end ='')
+        print(">", end="")
         return input()
 
     def prompt_firstname():
         """Ask for the firstname of a player."""
         print("\nPlease type the player firstname: ")
-        print(">", end ='')
+        print(">", end="")
         return input()
 
     def prompt_dob():
         """Ask for the date of birth of a player."""
         print("\nPlease type the player date of birth: ")
-        print(">", end ='')
+        print(">", end="")
         return input()
 
     def player_added_msg(player_number):
         """Adding player message."""
         print(f"\nThe player {player_number} was added.")
-        print(">", end ='')
+        print(">", end="")
 
     def error_add_player():
         """Error message to the menu."""

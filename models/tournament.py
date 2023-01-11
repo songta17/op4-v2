@@ -6,16 +6,16 @@ class Tournament:
     """Tournament class."""
 
     def __init__(
-            self,  
-            name, 
-            place, 
-            start_date, 
-            end_date, 
-            round_list = [],
-            players_list = [],
-            current_round = 1,
-            round_number = 4,
-            description = None
+            self,
+            name,
+            place,
+            start_date,
+            end_date,
+            round_list=[],
+            players_list=[],
+            current_round=1,
+            round_number=4,
+            description=None
             ):
         self.name = name
         self.place = place
@@ -29,7 +29,7 @@ class Tournament:
 
     def __repr__(self, *args, **kwargs):
         return str(vars(self))
-    
+
     def add_player(self, new_player):
         self.players_list.append(new_player)
 
