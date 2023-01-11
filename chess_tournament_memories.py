@@ -8,6 +8,7 @@ class App:
         game = GameController()
         game.main_menu()
 
+
 if __name__ == "__main__":
     """Launch of the chess memory tournament app."""
     App()

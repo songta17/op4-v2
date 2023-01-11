@@ -4,7 +4,12 @@
 class Match:
     """Match class."""
 
-    def __init__(self, player_playing_in_white, player_playing_in_black, winner):
+    def __init__(
+            self,
+            player_playing_in_white,
+            player_playing_in_black,
+            winner
+            ):
         self.player_playing_in_white = player_playing_in_white
         self.player_playing_in_black = player_playing_in_black
         self.winner = winner

@@ -13,37 +13,37 @@ class TournamentViews:
     def prompt_tournament_name():
         """Ask for the tournament name."""
         print("Please type the tournament name: ")
-        print(">", end ='')
+        print(">", end="")
         return input()
 
     def prompt_tournament_place():
         """Ask for the tournament place."""
         print("\nPlease type the tournament location: ")
-        print(">", end ='')
+        print(">", end="")
         return input()
 
     def prompt_tournament_start_date():
         """Ask for the tournament start date."""
         print("\nPlease type the starting date of the tournament: ")
-        print(">", end ='')
+        print(">", end="")
         return input()
 
     def prompt_tournament_end_date():
         """Ask for the tournament end date."""
         print("\nPlease type the ending date of the tournament: ")
-        print(">", end ='')
+        print(">", end="")
         return input()
 
     def prompt_tournament_round_list():
         """Ask round list."""
         print("\nPlease type the tournament round list.")
-        print(">", end ='')
+        print(">", end="")
         return input()
 
     def prompt_tournament_players_list():
         """Ask rank."""
         print("\nPlease add a player.")
-        print(">", end ='')
+        print(">", end="")
         return input()
 
     def tournament_created_msg():
@@ -53,7 +53,7 @@ class TournamentViews:
     def prompt_tournament_time_control():
         """Ask rank."""
         print("\nPlease type the time control [].")
-        print(">", end ='')
+        print(">", end="")
         return input()
 
     def error_create_tournament():
