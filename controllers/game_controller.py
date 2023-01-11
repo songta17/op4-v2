@@ -55,12 +55,10 @@ class GameController:
         elif user_input == "5":
             print("Add a tournament description's.")
         elif user_input == "6":
-            print("Generate reports sections.")
-        elif user_input == "7":
             print("Save a tournament.")
-        elif user_input == "8":
+        elif user_input == "7":
             print("Load a tounament.")
-        elif user_input == "9":
+        elif user_input == "8":
             print("The Chess Tournament Memories App shutting. Please wait.")
             time.sleep(2)
             self.view.terminal_clearing()

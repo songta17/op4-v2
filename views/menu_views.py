@@ -22,9 +22,8 @@ class MenuViews:
         print("[4] - Add results.")        
         print("[5] - Add a tournament description's.")
         print("[6] - Save a tournament.")        
-        print("[7] - Load a tounament.")        
-        print("[8] - Generate reports.")
-        print("[9] - Quit the App.")
+        print("[7] - Load a tounament.")  
+        print("[8] - Quit the App.")
         print("\n")
         # # create a tournament
         # print("[1] - Create a tournament.")
