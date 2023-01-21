@@ -8,10 +8,10 @@ from controllers.round_controller import RoundController
 from controllers.match_controller import MatchController
 
 from views.menu_views import MenuViews
+from views.report_views import ReportViews
 from views.tournament_views import TournamentViews
 
 from models.database import Database
-from models.tournament import Tournament
 
 
 class GameController:
@@ -26,12 +26,44 @@ class GameController:
 
     def main_menu(self):
         """Main Menu sequence."""
-        self.view.app_title()
-        self.view.terminal_clearing()
-        self.view.app_title()
-        self.view.menu_title()
-        self.view.menu_list()
+        self.view = MenuViews
+        self.view.run_menu()
         self.main_menu_input()
+
+    def report_menu(self):
+        """Main report sequence."""
+        self.view = ReportViews
+        self.view.run_report()
+        self.main_report_input()
+
+    def main_report_input(self):
+        """Manage Input's admin choice on the report menu."""
+        self.view.prompt_for_command_menu()
+        user_input = input()
+        self.view.terminal_clearing()
+        if user_input == "1":
+            self.view.report_players()
+        elif user_input == "2":
+            self.view.report_tournaments()
+        elif user_input == "3":
+            self.view.report_tournament()
+        elif user_input == "4":
+            self.view.report_tournament_players()
+        elif user_input == "5":
+            self.view.report_rounds_tournament()
+        elif user_input == "8":
+            self.main_menu()
+        elif user_input == "9":
+            self.view.quit_app()
+        else:
+            self.view.input_error()
+            self.view.report_list()
+            self.main_report_input()
+        user_input = self.view.nav_back_or_quit()
+        if user_input == "8":
+            self.main_menu()
+        elif user_input == "9":
+            self.view.quit_app()
 
     def main_menu_input(self):
         """Manage Input's admin choice on the main menu."""
@@ -114,12 +146,12 @@ class GameController:
             # load = self.database.load_tournament_db(input)
             # self.tournament = load
             pass
+        elif user_input == "8":
+            # REPORT
+            self.report_menu()
         elif user_input == "9":
-            print("The Chess Tournament Memories App shutting. Please wait.")
-            time.sleep(2)
-            self.view.terminal_clearing()
-            quit()
+            self.view.quit_app()
         else:
-            print("\nInput error : Select a valid option.")
+            self.view.input_error()
             self.main_menu_input()
         return self.main_menu()

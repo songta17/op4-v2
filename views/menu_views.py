@@ -1,10 +1,17 @@
 """Menu Views."""
-
+import time
 import os
 
 
 class MenuViews:
     """Implement the view."""
+
+    def run_menu():
+        MenuViews.app_title()
+        MenuViews.terminal_clearing()
+        MenuViews.app_title()
+        MenuViews.menu_title()
+        MenuViews.menu_list()
 
     def app_title():
         print("--------------------------------------")
@@ -29,7 +36,6 @@ class MenuViews:
 
     def prompt_for_command_menu():
         """Ask for the menu choice."""
-
         print("\nPlease select your choice: ")
         print("> ", end="")
 
@@ -70,3 +76,17 @@ class MenuViews:
     def redirect_to_menu_msg():
         """Redirect message to the menuc."""
         print("You will quickly be redirected to the Menu page...")
+
+    def quit_app():
+        print("The Chess Tournament Memories App shutting. Please wait.")
+        time.sleep(2)
+        MenuViews.terminal_clearing()
+        quit()
+
+    def input_error():
+        print("\nInput error : Select a valid option.")
+
+    def nav_back_or_quit():
+        print("Reports List [8] / Main Menu [9]")
+        print("> ", end="")
+        return input()
