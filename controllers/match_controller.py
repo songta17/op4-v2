@@ -28,4 +28,8 @@ class MatchController:
         end_start = datetime.now()
         round_list[current_round]['end_time'] = json.dumps(end_start, default=str)
         self.database.table_tournaments.update({'round_list': round_list})
+
+        # self.database.table_tournaments.update(
+        #     {'round_list': round.serialize_round()}
+        # )
         return round_list
