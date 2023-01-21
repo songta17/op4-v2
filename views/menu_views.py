@@ -32,7 +32,6 @@ class MenuViews:
         print("[7] - Load a tounament.")
         print("[8] - See reports.")
         print("[9] - Quit the App.")
-        print("\n")
 
     def prompt_for_command_menu():
         """Ask for the menu choice."""
