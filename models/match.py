@@ -6,24 +6,24 @@ class Match:
 
     def __init__(
             self,
-            player_playing_in_white,
-            player_playing_in_black,
-            winner
+            player_1,
+            player_1_name,
+            player_2,
+            player_2_name
             ):
-        self.player_playing_in_white = player_playing_in_white
-        self.player_playing_in_black = player_playing_in_black
-        self.winner = winner
+        self.player_1 = player_1
+        self.player_2 = player_2
+        self.player_1_name = player_1_name
+        self.player_2_name = player_2_name
+        self.score_player_1 = None
+        self.score_player_2 = None
 
-    def __repr__(self):
-        return str(vars(self))
-
-    # def win_match(self):
-    #     """Add One point for the winner."""
-    #     pass
-
-    # def lose_match(self, name):
-    #     pass
-
-    # def draw_match(self):
-    #     """Draw match give 0,5 point to two players."""
-    #     pass
+    def serialize_match(self):
+        return {
+            'player_1': self.player_1,
+            'player_1_name': self.player_1_name,
+            'score_player_1': self.score_player_1,
+            'player_2': self.player_2,
+            'player_2_name': self.player_2_name,
+            'score_player_2': self.score_player_2
+        }

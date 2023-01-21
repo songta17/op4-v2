@@ -1,4 +1,5 @@
 """Define round."""
+import json
 
 
 class Round:
@@ -13,3 +14,11 @@ class Round:
 
     def __repr__(self):
         return str(vars(self))
+
+    def serialize_round(self):
+        return {
+            'round_name': self.round_name,
+            'matchs_list': self.matchs_list,
+            'start_time': json.dumps(self.start_time, default=str),
+            'end_time': json.dumps(self.end_time, default=str)
+        }

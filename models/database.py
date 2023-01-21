@@ -1,12 +1,12 @@
 import os
-from tinydb import TinyDB, Query, where
+from tinydb import TinyDB
 # from pprint import pprint
 # from time import sleep
 # import json
 
 DB_FILENAME = "db_chess_tournament_memories.json"
 DIRECTORY = "./database"
-        
+
 
 class Database:
     """Database Model."""
@@ -23,9 +23,20 @@ class Database:
     def __repr__(self, *args, **kwargs):
         return str(vars(self))
 
-    def create_tournament_db(self):
-        pass
+    def create_tournament_db(self, tournament):
+        """save tournament"""
+        self.table_tournaments.insert(tournament)
 
+    def load_tournament_db(self, id):
+        """Load tournament"""
+        all_tournaments = self.table_tournaments.all()
+        tournaments = []
+        for tournament in all_tournaments:
+            tournaments.append(tournament)
+        # breakpoint()
+        return tournaments[id]
+
+        # .search(where('field') == 'value')
 
     # def create_player_db(self):
     #     try:
@@ -47,7 +58,7 @@ class Database:
     #         {
     #         'opponents': new_opponents
     #         }, self.players_db.national_id == 'ABB1001')
-        
+
     # def insert_player(self):
     #     self.database.table('players')
     #     self.database.insert({"coucou" : 'haha'})
@@ -58,12 +69,12 @@ class Database:
 # database = Database()
 # database.players_db.insert(
 #     {
-#         'national_id': 'ABB1001', 
-#         'lastname': 'Connor', 
-#         'firstname': 'John', 
-#         'dob': '01/01/1979', 
-#         'score': '0.0', 
-#         'opponents': ["sarah", "t1"] 
+#         'national_id': 'ABB1001',
+#         'lastname': 'Connor',
+#         'firstname': 'John',
+#         'dob': '01/01/1979',
+#         'score': '0.0',
+#         'opponents': ["sarah", "t1"]
 #     }
 # )
 # pprint(database.players_db.all())

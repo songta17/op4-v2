@@ -7,12 +7,12 @@ class MenuViews:
     """Implement the view."""
 
     def app_title():
-        print("---------------------------------")
-        print("--- Chess Tournament Memories ---")
-        print("---------------------------------\n")
+        print("--------------------------------------")
+        print("----- Chess Tournament Memories ------")
+        print("--------------------------------------\n")
 
     def menu_title():
-        print("------------- MENU --------------\n")
+        print("# MENU\n")
 
     def menu_list():
         """Show the menu list."""
@@ -23,27 +23,15 @@ class MenuViews:
         print("[5] - Add a tournament description's.")
         print("[6] - Save a tournament.")
         print("[7] - Load a tounament.")
-        print("[8] - Quit the App.")
+        print("[8] - See reports.")
+        print("[9] - Quit the App.")
         print("\n")
-        # # create a tournament
-        # print("[1] - Create a tournament.")
-        # # see tournament
-        # print("[2] - See the tournament.")
-        # # add number of player
-        # print("[3] - Add a player.")
-        # # see player
-        # print("[4] - See players list.")
-        # # select a pair of two random opponents for the first round
-        # print("[5] - Generate a pair of two random opponents.")
-        # # when match done, add a result
-        # print("[6] - Add manually the result.")
-        # # see result
 
     def prompt_for_command_menu():
         """Ask for the menu choice."""
 
         print("\nPlease select your choice: ")
-        print(">", end="")
+        print("> ", end="")
 
     def terminal_clearing():
         os.system('clear')
@@ -57,27 +45,27 @@ class MenuViews:
     def prompt_lastname(number):
         """Ask lastname."""
         print(f"\nPlease type the lastname for the player {number}.")
-        print(">", end="")
+        print("> ", end="")
 
     def prompt_firstname(number):
         """Ask firstname."""
         print(f"\nPlease type the firstname for the player {number}.")
-        print(">", end="")
+        print("> ", end="")
 
     def prompt_birthday(number):
         """Ask birthday."""
         print(f"\nPlease type the birthday for the player {number}.")
-        print(">", end="")
+        print("> ", end="")
 
     def prompt_gender(number):
         """Ask gender."""
         print(f"\nPlease type the gender for the player {number}.")
-        print(">", end="")
+        print("> ", end="")
 
     def prompt_rank(number):
         """Ask rank."""
         print(f"\nPlease type the rank for the player {number}.")
-        print(">", end="")
+        print("> ", end="")
 
     def redirect_to_menu_msg():
         """Redirect message to the menuc."""

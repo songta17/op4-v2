@@ -1,7 +1,6 @@
 """Define player."""
-from models.database import Database
 import json
-# from pprint import pprint
+import random
 
 
 class Player:
@@ -12,7 +11,7 @@ class Player:
         self.lastname = lastname
         self.firstname = firstname
         self.dob = dob
-        self.score = 0.0
+        self.score = random.randint(0, 10)  # 0.0
         self.opponents = []
 
     def __repr__(self, *args, **kwargs):
@@ -22,7 +21,7 @@ class Player:
         return json.loads(json.dumps(self, default=lambda o: o.__dict__))
 
     def increment_score(self, point):
-        self.score += point 
+        self.score += point
 
     def add_opponent(self, opponent):
         self.opponents.append(opponent)
