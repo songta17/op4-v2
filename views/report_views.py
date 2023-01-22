@@ -5,18 +5,6 @@ from views.menu_views import MenuViews
 class ReportViews(MenuViews):
     """Implement the view."""
 
-    # def __init__(self):
-    #     self.table = PrettyTable()
-
-    #     self.player_report_field_names = [
-    #         "ID",
-    #         "National Id",
-    #         "Lastname",
-    #         "Firstname",
-    #         "Date of Birth",
-    #         "Score"
-    #     ]
-
     def run_report():
         ReportViews.app_title()
         ReportViews.terminal_clearing()

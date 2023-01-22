@@ -9,29 +9,35 @@ class ReportsController:
         self.report = PrettyTable()
 
     # MENU REPORT [1]
-    def report_players_tournaments(self, tournaments):
-        """Generate players name of all tournaments."""
+    def create_players_tournaments_table(self):
+        """Generate the table of all players tournaments."""
         self.report.field_names = [
-            "ID",
             "National Id",
             "Lastname",
             "Firstname",
-            "Date of Birth",
-            # "Score"
+            "Date of Birth"
         ]
 
+    def add_players_tournaments_content(self, players):
+        """Add data to the table of all players tournaments."""
+        players_order_by_name = sorted(
+            players,
+            key=lambda player: player['lastname'],
+            reverse=False
+        )
 
-        # for i in range(len(players)):              
-        #     breakpoint()
-        #     self.report.add_row([
-        #             i,
-        #             players[int(i)]['national_id'],
-        #             players[int(i)]['lastname'],
-        #             players[int(i)]['firtsname'],
-        #             players[int(i)]['dob'] #,
-        #             # players[int(i)]['score']
-        #         ])
-        
+        for i in range(len(players)):
+            self.report.add_row([
+                players_order_by_name[i]['national_id'],
+                players_order_by_name[i]['lastname'],
+                players_order_by_name[i]['firstname'],
+                players_order_by_name[i]['dob']
+            ])
+
+    def report_players_tournaments(self, players):
+        """Generate players name of all tournaments."""
+        self.create_players_tournaments_table()
+        self.add_players_tournaments_content(players)        
         print(self.report)
 
     # MENU REPORT [2]
