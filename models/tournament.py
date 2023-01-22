@@ -1,5 +1,4 @@
 """Define tournament."""
-# from player import Player
 
 
 class Tournament:
@@ -10,7 +9,7 @@ class Tournament:
             name,
             place,
             start_date,
-            end_date,
+            end_date=None,
             round_list=[],
             players_list=[],
             current_round=1,
@@ -39,11 +38,6 @@ class Tournament:
     def edit_description(self, new_description):
         self.description = new_description
 
-    def sort_players_by_name(self):
-        # self.players_list.sorted(self.players_list.items(), key="lastname")
-        # sorted(self.players_list, key=lambda i: i['lastname'])
-        pass
-
     def serialize_tournament(self):
         return {
             'name': self.name,
@@ -56,65 +50,3 @@ class Tournament:
             'round_number': self.round_number,
             'description': self.description
         }
-
-    # def sort_players_by_score(self, array):
-        # return sorted(array, key=lambda i: i['name'])
-
-    # def save_tournament(self):
-    #     pass
-
-    # def load_tournament(self):
-    #     pass
-
-# players = []
-# player = Player(
-#     "AB01",
-#     "Phou",
-#     "Vora",
-#     "14/01/79"
-# )
-# player2 = Player(
-#     "AB02",
-#     "Nor",
-#     "Sith",
-#     "01/12/79"
-# )
-# players.append(player)
-# players.append(player2)
-
-# tournament = Tournament(
-#     "name tournament",
-#     "Marly",
-#     "01/01/2023",
-#     "10/01/2023",
-#     1,
-#     ["round list"],
-#     players,
-#     "time control",
-#     4,
-#     "sans description"
-# )
-# # tournament = Tournament(
-# #     "name tournament",
-# #     "Marly",
-# #     "01/01/2023",
-# #     "10/01/2023",
-# #     1,
-# #     ["round list"],
-# #     ["z", "a", "player one", "player two"],
-# #     "time control",
-# #     4,
-# #     "sans description"
-# # )
-# print(tournament)
-# print("---------------")
-# tournament.add_player("John")
-# # print(tournament.sort_players_by_name())
-# # print(sort_players_by_name(tournament.players_list))
-# # print(str(tournament))
-# # tournament.sort_players_by_score()
-# print("---------------")
-# # tournament.sort_players_by_name()
-# # print(str(tournament))
-# # tournament.edit_description("hello description!")
-# # print(str(tournament))

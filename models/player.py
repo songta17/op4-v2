@@ -35,37 +35,3 @@ class Player:
             'score': self.score,
             'opponents': self.opponents
         }
-
-    # TEST controller
-    # def create_player_db(self):
-    #     try:
-    #         Database().table_players.insert(self.to_JSON())
-    #         pprint(player.to_JSON())
-    #     except:
-    #         print('Error: Can\'t save this player.')
-
-    # def update_player_db(self):
-    #     pass
-
-# TEST
-# player = Player(
-#     "AB01",
-#     "Phou",
-#     "Vora",
-#     "14/01/79"
-# )
-
-# print(player)
-# player.increment_score(1)
-# print(player)
-# player.increment_score(0.5)
-# print(player)
-# player.add_opponent("Miackel")
-# print(player)
-# player.create_player_db()
-# haha = Database().players_db.insert(player.to_JSON())
-# # database = Database()
-# # database.players_db.insert(player.to_JSON())
-# # pprint(database.players_db)
-# pprint(haha)
-# pprint(player.to_JSON())

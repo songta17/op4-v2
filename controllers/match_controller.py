@@ -1,6 +1,6 @@
 """Define the match controller."""
 import json
-from datetime import datetime
+from datetime import date
 
 
 class MatchController:
@@ -25,7 +25,6 @@ class MatchController:
                 reduce[i]['score_player_1'] = 0.5
                 reduce[i]['score_player_2'] = 0.5
 
-        end_start = datetime.now()
+        end_start = date.today()
         round_list[current_round]['end_time'] = json.dumps(end_start, default=str)
-        # self.database.table_tournaments.update({'round_list': round_list})
         return round_list
