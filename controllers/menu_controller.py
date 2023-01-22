@@ -16,7 +16,7 @@ from views.tournament_views import TournamentViews
 from models.database import Database
 
 
-class GameController:
+class MenuController:
     """Game controller."""
 
     def __init__(self):
@@ -24,8 +24,8 @@ class GameController:
         self.view = MenuViews
         self.tournament = None
         self.round_list = []
-        self.database = Database()
         self.step_access = True
+        self.database = Database()
         self.report = ReportsController()
 
     def main_menu(self):
@@ -47,9 +47,8 @@ class GameController:
         self.view.terminal_clearing()
         if user_input == "1":
             self.view.report_players()
-            tournaments = self.database.load_tournaments()
-            # players = self.database.load_players_tournaments()
-            # ReportsController().report_players_tournaments(players)
+            players = self.database.load_players()
+            ReportsController().report_players_tournaments(players)
         elif user_input == "2":
             self.view.report_tournaments()
             tournaments = self.database.load_tournaments()
@@ -91,54 +90,6 @@ class GameController:
             self.tournament = TournamentController(db).new()
         elif user_input == "2":
             self.tournament['players_list'] = PlayerController(db).add_player()
-            # self.tournament['players_list'] = [{'dob': '',
-            #        'firstname': 'LIN',
-            #        'lastname': 'JO',
-            #        'national_id': '1',
-            #        'opponents': [],
-            #        'score': 10},
-            #       {'dob': '',
-            #        'firstname': 'CARTON',
-            #        'lastname': 'JAMES',
-            #        'national_id': '2',
-            #        'opponents': [],
-            #        'score': 2},
-            #       {'dob': '',
-            #        'firstname': 'MOUSSE',
-            #        'lastname': 'MIKEY',
-            #        'national_id': '3',
-            #        'opponents': [],
-            #        'score': 8},
-            #       {'dob': '',
-            #        'firstname': 'GUELLEE',
-            #        'lastname': 'ROSS',
-            #        'national_id': '4',
-            #        'opponents': [],
-            #        'score': 8},
-            #       {'dob': '6',
-            #        'firstname': 'LOI,',
-            #        'lastname': 'RQCHE',
-            #        'national_id': '5',
-            #        'opponents': [],
-            #        'score': 9},
-            #       {'dob': '',
-            #        'firstname': 'JUKL',
-            #        'lastname': 'MINOCQ',
-            #        'national_id': '6',
-            #        'opponents': [],
-            #        'score': 3},
-            #       {'dob': '',
-            #        'firstname': 'MOR',
-            #        'lastname': 'CONS',
-            #        'national_id': '7',
-            #        'opponents': [],
-            #        'score': 10},
-            #       {'dob': '',
-            #        'firstname': 'OUI',
-            #        'lastname': 'BEN',
-            #        'national_id': '8',
-            #        'opponents': [],
-            #        'score': 4}]
         elif user_input == "3" and self.tournament['current_round'] < 5 and self.step_access:
             self.tournament['round_list'].append(RoundController(db).generate(
                 self.tournament['current_round'],

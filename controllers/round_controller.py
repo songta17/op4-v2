@@ -1,7 +1,7 @@
 """Define the round controller."""
 import time
 import pprint
-from datetime import datetime
+from datetime import date
 
 from models.round import Round
 from models.match import Match
@@ -22,7 +22,7 @@ class RoundController:
         self.view.generate_pairs_title_section(current_round)
         round_name = "Round " + str(current_round)
         matchs_list = []
-        start_time = datetime.now()
+        start_time = date.today()
         sorted_players = RoundController.ranking(players)
         matchs_list = RoundController.generate_pair(sorted_players)
 

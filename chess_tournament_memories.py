@@ -1,11 +1,11 @@
 """Entry point."""
 
-from controllers.game_controller import GameController
+from controllers.menu_controller import MenuController
 
 
 class App:
     def __init__(self):
-        game = GameController()
+        game = MenuController()
         game.main_menu()
 
 
