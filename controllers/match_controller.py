@@ -2,6 +2,11 @@
 import json
 from datetime import date
 
+from views.match_views import MatchViews
+from views.menu_views import MenuViews
+
+APPLY_POINT = {'win': 1, 'lose': 0, 'draw': 0.5}
+
 
 class MatchController:
     """Match controller."""
@@ -10,20 +15,25 @@ class MatchController:
         self.database = database
 
     def add_result(self, round_list, current_round):
-        for i in range(4):
-            reduce = round_list[current_round]['matchs_list']
-            print(f"match: {reduce[i]['player_1_name']} vs {reduce[i]['player_2_name']}")
-            result = input()
+        matchs = round_list[current_round]['matchs_list']
 
+        for i in range(4):
+            MatchViews.match_title(i)
+            result = MatchViews.add_result_match(
+                matchs[i]['player_1_name'],
+                matchs[i]['player_2_name']
+            )
+            
             if result == "1":
-                reduce[i]['score_player_1'] = 1
-                reduce[i]['score_player_2'] = 0
+                matchs[i]['score_player_1'] = APPLY_POINT["win"]
+                matchs[i]['score_player_2'] = APPLY_POINT["lose"]
             elif result == "2":
-                reduce[i]['score_player_1'] = 0
-                reduce[i]['score_player_2'] = 1
+                matchs[i]['score_player_1'] = APPLY_POINT["lose"]
+                matchs[i]['score_player_2'] = APPLY_POINT["win"]
             else:
-                reduce[i]['score_player_1'] = 0.5
-                reduce[i]['score_player_2'] = 0.5
+                matchs[i]['score_player_1'] = APPLY_POINT["draw"]
+                matchs[i]['score_player_2'] = APPLY_POINT["draw"]
+            MenuViews.terminal_clearing()
 
         end_start = date.today()
         round_list[current_round]['end_time'] = json.dumps(end_start, default=str)
