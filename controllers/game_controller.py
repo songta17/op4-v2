@@ -7,6 +7,7 @@ from controllers.player_controller import PlayerController
 from controllers.reports_controller import ReportsController
 from controllers.round_controller import RoundController
 from controllers.match_controller import MatchController
+from controllers.database_controller import DatabaseController
 
 from views.menu_views import MenuViews
 from views.report_views import ReportViews
@@ -25,6 +26,7 @@ class GameController:
         self.round_list = []
         self.database = Database()
         self.step_access = True
+        # self.report = ReportsController()
 
     def main_menu(self):
         """Main Menu sequence."""
@@ -44,21 +46,24 @@ class GameController:
         user_input = input()
         self.view.terminal_clearing()
         if user_input == "1":
-            ReportViews.report_players()
-            # self.view.report_players()
+            self.view.report_players()
+            tournaments = self.database.load_tournaments()
+            # players = self.database.load_players_tournaments()
+            # ReportsController().report_players_tournaments(players)
+            ReportsController().report_players_tournaments(tournaments)
         elif user_input == "2":
             self.view.report_tournaments()
-            tournaments = []
-            ReportsController().report_tournaments(self, tournaments)
+            tournaments = self.database.load_tournaments()
+            ReportsController().generate_report_tournaments(tournaments)
         elif user_input == "3":
             self.view.report_tournament()
-            ReportsController().report_tournament(self.tournament)
+            ReportsController().generate_report_tournament(self.tournament)
         elif user_input == "4":
             self.view.report_tournament_players()
-            ReportsController().report_players(self.tournament['players_list'])
+            ReportsController().generate_report_players(self.tournament['players_list'])
         elif user_input == "5":
             self.view.report_rounds_tournament()
-            ReportsController().report_rounds_tournament(self.tournament['round_list'])
+            ReportsController().generate_report_rounds_tournament(self.tournament['round_list'])
         elif user_input == "8":
             self.main_menu()
         elif user_input == "9":
@@ -69,12 +74,13 @@ class GameController:
             self.main_report_input()
         user_input = self.view.nav_back_or_quit()
         if user_input == "8":
-            self.main_menu()
+            self.report_menu()
         elif user_input == "9":
             self.view.quit_app()
 
     def main_menu_input(self):
         """Manage Input's admin choice on the main menu."""
+        # print(f"Current Tournament: {self.tournament['name']}")
         pprint(self.tournament)
         db = self.database
 
@@ -147,14 +153,10 @@ class GameController:
             self.step_access = True
         elif user_input == "5":
             self.tournament['description'] = TournamentViews.add_description()
-            db.create_tournament_db(self.tournament)
         elif user_input == "6":
-            db.create_tournament_db(self.tournament)
-            time.sleep(2)
+            DatabaseController(db).save(self.tournament)
         elif user_input == "7":
-            # input = TournamentViews.load_number_id
-            # load = self.database.load_tournament_db(input)
-            # self.tournament = load
+            self.tournament = DatabaseController(db).load()
             pass
         elif user_input == "8":
             self.report_menu()
