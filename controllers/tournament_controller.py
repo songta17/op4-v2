@@ -27,9 +27,9 @@ class TournamentController:
                 end_date_input
             )
             self.view.tournament_created_msg()
-            self.database.table_tournaments.insert(
-                tournament.serialize_tournament()
-            )
+            # self.database.table_tournaments.insert(
+            #     tournament.serialize_tournament()
+            # )
             MenuViews.redirect_to_menu_msg()
             time.sleep(2)
             return tournament.serialize_tournament()

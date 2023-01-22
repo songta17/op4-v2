@@ -39,9 +39,9 @@ class RoundController:
             time.sleep(3)
             MenuViews.redirect_to_menu_msg()
 
-        self.database.table_tournaments.update(
-            {'round_list': round.serialize_round()}
-        )
+        # self.database.table_tournaments.update(
+        #     {'round_list': round.serialize_round()}
+        # )
         return round.serialize_round()
 
     def update_round(current_round):

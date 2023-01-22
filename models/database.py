@@ -1,6 +1,7 @@
 import os
 from tinydb import TinyDB
-# from pprint import pprint
+from pprint import pprint
+from views.database_views import DatabaseViews
 # from time import sleep
 # import json
 
@@ -33,11 +34,38 @@ class Database:
         tournaments = []
         for tournament in all_tournaments:
             tournaments.append(tournament)
-        # breakpoint()
-        return tournaments[id]
+            DatabaseViews.show_tournaments_ids(tournaments)
+        return tournaments[int(id)]
 
-        # .search(where('field') == 'value')
+    def show_ids(self):
+        DatabaseViews.tournament_list_ids()
+        all_tournaments = self.table_tournaments.all()
+        for id in range(len(all_tournaments)):
+            DatabaseViews.show_id_printer(id, all_tournaments[int(id)]['name'])
 
+    # def load_tournaments(self):
+    #     """Load all tournaments."""
+    #     all_tournaments = self.table_tournaments.all()
+    #     tournaments = []
+    #     for tournament in all_tournaments:
+    #         tournaments.append(tournament)
+    #         DatabaseViews.show_tournaments_ids(tournaments)
+    #     return tournaments[int(id)]
+    
+    def load_tournaments(self):
+        """Load tournaments."""
+        all_tournaments = self.table_tournaments.all()
+        return all_tournaments
+
+    def load_players_tournaments(self):
+        all_tournaments = self.table_tournaments.all()
+        players = []
+        for index in range(len(all_tournaments)):
+            players.append(all_tournaments[index]['players_list'])
+        return players
+
+
+    # .search(where('field') == 'value')
     # def create_player_db(self):
     #     try:
     #         Database().table_players.insert(self.to_JSON())
