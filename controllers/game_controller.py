@@ -26,7 +26,7 @@ class GameController:
         self.round_list = []
         self.database = Database()
         self.step_access = True
-        # self.report = ReportsController()
+        self.report = ReportsController()
 
     def main_menu(self):
         """Main Menu sequence."""
@@ -50,7 +50,6 @@ class GameController:
             tournaments = self.database.load_tournaments()
             # players = self.database.load_players_tournaments()
             # ReportsController().report_players_tournaments(players)
-            ReportsController().report_players_tournaments(tournaments)
         elif user_input == "2":
             self.view.report_tournaments()
             tournaments = self.database.load_tournaments()
