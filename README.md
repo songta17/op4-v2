@@ -68,7 +68,7 @@ open flake-report/index.html
 
 **You will find the report in the file _'flake8-report'_.**
 
-TODO: IMG 
+![flake8-report](images/flake8-report.png)
 
 <div id='id-section2'></div>
 
@@ -77,9 +77,11 @@ TODO: IMG
 <div id='id-section2-1'></div>
 
 #### i. Main Menu 
-TODO : IMG screen of the main menun
+
+![flake8-report](images/main-menu.png)
 
 <div id='id-section2-2'></div>
 
 #### ii. Reports Menu
-TODO : IMG screen of the report menun
+
+![flake8-report](images/report-menu.png)
