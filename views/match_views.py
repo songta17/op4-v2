@@ -1,5 +1,5 @@
 """Match Views."""
-CURRENT_MATCH = { 
+CURRENT_MATCH = {
     0: 'first',
     1: 'second',
     2: 'third',
@@ -17,8 +17,9 @@ class MatchViews:
         print("--------------------------------------\n")
 
     def add_result_match(player_one, player_two):
-
-        print(f"\033[92mPLAYER ONE [{player_one}]\033[0m VS \033[92mPLAYER TWO [{player_two}]\033[0m\n")
+        txt = f"PLAYER ONE [{player_one}] VS " \
+            f"PLAYER TWO [{player_two}]\n"
+        print(txt)
         hint_result = "PLAYER ONE WIN press [1] | " \
             "PLAYER TWO WIN press [2] | " \
             "DRAW press any key"

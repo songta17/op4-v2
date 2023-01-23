@@ -1,6 +1,5 @@
 """Define the game controller."""
-import time
-from pprint import pprint
+# from pprint import pprint
 
 from controllers.tournament_controller import TournamentController
 from controllers.player_controller import PlayerController
@@ -58,10 +57,14 @@ class MenuController:
             ReportsController().generate_report_tournament(self.tournament)
         elif user_input == "4":
             self.view.report_tournament_players()
-            ReportsController().generate_report_players(self.tournament['players_list'])
+            ReportsController().generate_report_players(
+                self.tournament['players_list']
+                )
         elif user_input == "5":
             self.view.report_rounds_tournament()
-            ReportsController().generate_report_rounds_tournament(self.tournament['round_list'])
+            ReportsController().generate_report_rounds_tournament(
+                self.tournament['round_list']
+            )
         elif user_input == "8":
             self.main_menu()
         elif user_input == "9":
@@ -78,8 +81,10 @@ class MenuController:
 
     def main_menu_input(self):
         """Manage Input's admin choice on the main menu."""
-        # print(f"Current Tournament: {self.tournament['name']}")
-        pprint(self.tournament)
+        try:
+            print(f"\nCurrent Tournament Name: {self.tournament['name']}")
+        except Exception:
+            print("\nCurrent Tournament Name: None")
         db = self.database
 
         self.view.prompt_for_command_menu()
@@ -90,16 +95,28 @@ class MenuController:
             self.tournament = TournamentController(db).new()
         elif user_input == "2":
             self.tournament['players_list'] = PlayerController(db).add_player()
-        elif user_input == "3" and self.tournament['current_round'] < 5 and self.step_access:
+        elif user_input == "3" and \
+                self.tournament['current_round'] < 5 and \
+                self.step_access:
             self.tournament['round_list'].append(RoundController(db).generate(
                 self.tournament['current_round'],
                 self.tournament['players_list']
             ))
             self.step_access = False
-        elif user_input == "4"  and self.tournament['current_round'] < 5 and not self.step_access:
-            self.tournament['round_list'] = MatchController(db).add_result(self.tournament['round_list'], self.tournament['current_round'] - 1)
-            self.tournament['players_list'] = RoundController.update_score(self.tournament, self.tournament['current_round'])
-            self.tournament['current_round'] = RoundController.update_round(self.tournament['current_round'])
+        elif user_input == "4" and \
+                self.tournament['current_round'] < 5 and \
+                not self.step_access:
+            self.tournament['round_list'] = MatchController(db).add_result(
+                self.tournament['round_list'],
+                self.tournament['current_round'] - 1
+            )
+            self.tournament['players_list'] = RoundController.update_score(
+                self.tournament,
+                self.tournament['current_round']
+            )
+            self.tournament['current_round'] = RoundController.update_round(
+                self.tournament['current_round']
+            )
             self.step_access = True
         elif user_input == "5":
             self.tournament['description'] = TournamentViews.add_description()

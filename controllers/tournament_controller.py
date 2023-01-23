@@ -17,12 +17,14 @@ class TournamentController:
         name_input = self.view.prompt_tournament_name()
         place_input = self.view.prompt_tournament_place()
         start_date_input = self.view.prompt_tournament_start_date()
+        end_date_input = self.view.prompt_tournament_end_date()
 
         try:
             tournament = Tournament(
                 name_input,
                 place_input,
-                start_date_input
+                start_date_input,
+                end_date_input,
             )
             self.view.tournament_created_msg()
             MenuViews.redirect_to_menu_msg()
