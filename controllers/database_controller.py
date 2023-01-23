@@ -1,7 +1,6 @@
 """Define the database controller."""
 import time
 
-from views.menu_views import MenuViews
 from views.database_views import DatabaseViews
 
 

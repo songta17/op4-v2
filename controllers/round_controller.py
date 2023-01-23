@@ -1,6 +1,5 @@
 """Define the round controller."""
 import time
-import pprint
 from datetime import date
 
 from models.round import Round
@@ -76,8 +75,6 @@ class RoundController:
             tournament['players_list'][i]['score'] = score
         return tournament['players_list']
 
-
-
     def players_rank_order(sorted_players):
         """Get all national_id during a round."""
         national_id_ranks = []
@@ -87,8 +84,8 @@ class RoundController:
 
     def generate_pair(sorted_players):
         # create a natina_id list ranked for the round 
-        national_id_ranks = RoundController.players_rank_order(sorted_players)   
-        national_id_ranks.reverse()     
+        national_id_ranks = RoundController.players_rank_order(sorted_players)
+        national_id_ranks.reverse()
         array = []
         i = 0
 

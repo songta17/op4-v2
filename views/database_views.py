@@ -28,9 +28,9 @@ class DatabaseViews:
         print(f"{int(id)} - {name}")
 
     def show_tournaments_ids(tournaments):
-            print("id disponible:")
-            print(len(tournaments))
-            print("\n")
+        print("id disponible:")
+        print(len(tournaments))
+        print("\n")
 
     def load_number_id():
         """Ask number id."""
