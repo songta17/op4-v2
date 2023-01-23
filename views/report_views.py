@@ -57,4 +57,4 @@ class ReportViews(MenuViews):
         print("----------------------------------------\n")
 
     def show_opponents(p1, s1, p2, s2):
-        return p1 + " ("  + str(s1) + ") " + " VS " + p2 + " (" + str(s2) + ")"
+        return p1 + "(" + str(s1) + ")" + " VS " + p2 + "(" + str(s2) + ")"

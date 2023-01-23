@@ -38,7 +38,7 @@ class MatchController:
 
         end_start = date.today()
         round_list[current_round]['end_time'] = json.dumps(
-            end_start, 
+            end_start,
             default=str
             )
         return round_list
