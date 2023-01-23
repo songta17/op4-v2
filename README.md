@@ -10,7 +10,6 @@
 2. [Menu Options](#id-section2)
     1. [Main Menu](#section2-1)
     2. [Reports Menu](#section2-2)
-3. [Examples of display](#section3)
 
 
 <div id='id-section1'></div>
@@ -68,34 +67,20 @@ In the terminal, go to the folder where you want to copy the application.
     $ flake8 --format=html --htmldir=flake-report
 open flake-report/index.html
 
-**Vous trouverez le rapport dans le dossier _'flake8-report'_.**
+**You will find the report in the file _'flake8-report'_.**
 
-_Dernier rapport exporté :_
-
-![latest_report](img/latest_report.png)
+TODO: IMG 
 
 <div id='id-section2'></div>
 
-## 2. Options des menus
+## 2. Menu Options
 
 <div id='id-section2-1'></div>
 
 #### i. Main Menu 
-![main_menu](img/main_menu.png)
+TODO : IMG screen of the main menun
 
 <div id='id-section2-2'></div>
 
 #### ii. Reports Menu
-![main_menu](img/reports_menu.png)
-
-<div id='id-section3'></div>
-
-## 3. Exemples d'affichage
-#### Matchs d'une ronde :
-![round](img/round_example.png)
-
-#### Rapport des joueurs :
-![player_report](img/players_report.png)
-
-#### Rapport des rondes :
-![round_report](img/rounds_report.png)
+TODO : IMG screen of the report menun
