@@ -1,5 +1,6 @@
 """Define the reports controller."""
 from prettytable import PrettyTable
+from views.report_views import ReportViews
 
 
 class ReportsController:
@@ -37,7 +38,7 @@ class ReportsController:
     def report_players_tournaments(self, players):
         """Generate players name of all tournaments."""
         self.create_players_tournaments_table()
-        self.add_players_tournaments_content(players)        
+        self.add_players_tournaments_content(players)
         print(self.report)
 
     # MENU REPORT [2]
@@ -63,7 +64,7 @@ class ReportsController:
     def generate_report_tournaments(self, tournaments):
         """Generate all tournaments name report."""
         self.create_tournaments_table()
-        self.add_tournaments_content(tournaments)        
+        self.add_tournaments_content(tournaments)
         print(self.report)
 
     # MENU REPORT [3]
@@ -100,7 +101,7 @@ class ReportsController:
             "Date of Birth",
             "Score"
         ]
-        
+
     def add_players_content(self, players):
         """Add the data for the players report."""
         players_order_by_name = sorted(
@@ -111,7 +112,7 @@ class ReportsController:
 
         for i in range(8):
             self.report.add_row([
-                i, 
+                i,
                 players_order_by_name[i]['national_id'],
                 players_order_by_name[i]['lastname'],
                 players_order_by_name[i]['firstname'],
@@ -120,7 +121,7 @@ class ReportsController:
             ])
 
     def generate_report_players(self, players):
-        """Generate the report of all players of the tournament loaded."""      
+        """Generate the report of all players of the tournament loaded."""
         self.create_players()
         self.add_players_content(players)
         print(self.report)
@@ -137,11 +138,11 @@ class ReportsController:
 
     def add_rounds_tournament(self, rounds_list):
         """Add the table for reports players."""
-        for i in range(len(rounds_list)): 
+        for i in range(len(rounds_list)):
             self.report.add_row(["", "", "", ""])
-            self.report.add_row([    
+            self.report.add_row([
                     rounds_list[i]['round_name'],
-                    " [Player 1][point] VS [Player 2][point]" ,
+                    " [Player 1][point] VS [Player 2][point]",
                     rounds_list[i]['start_time'],
                     rounds_list[i]['end_time']
                 ])
@@ -151,11 +152,12 @@ class ReportsController:
                 s1 = rounds_list[i]['matchs_list'][int(y)]['score_player_1']
                 p2 = rounds_list[i]['matchs_list'][int(y)]['player_2_name']
                 s2 = rounds_list[i]['matchs_list'][int(y)]['score_player_2']
-                
+                versus_opponents = ReportViews.show_opponents(p1, s1, p2, s2)
+
                 self.report.add_row([
-                    "", 
-                    p1 + "(" + str(s1) + ")" + " VS " + p2 + "(" + str(s2) + ")", 
-                    "", 
+                    "",
+                    versus_opponents,
+                    "",
                     ""
                 ])
 

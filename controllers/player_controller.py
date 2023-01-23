@@ -43,6 +43,5 @@ class PlayerController:
                 self.view.error_add_player()
                 time.sleep(1)
 
-        # self.database.table_tournaments.update({'players_list': self.players})
         MenuViews.redirect_to_menu_msg()
         return self.players

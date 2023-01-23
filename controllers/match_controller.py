@@ -16,6 +16,7 @@ class MatchController:
 
     def add_result(self, round_list, current_round):
         matchs = round_list[current_round]['matchs_list']
+        # matchs_end_time = round_list[current_round]['end_time']
 
         for i in range(4):
             MatchViews.match_title(i)
@@ -23,7 +24,7 @@ class MatchController:
                 matchs[i]['player_1_name'],
                 matchs[i]['player_2_name']
             )
-            
+
             if result == "1":
                 matchs[i]['score_player_1'] = APPLY_POINT["win"]
                 matchs[i]['score_player_2'] = APPLY_POINT["lose"]
@@ -36,5 +37,8 @@ class MatchController:
             MenuViews.terminal_clearing()
 
         end_start = date.today()
-        round_list[current_round]['end_time'] = json.dumps(end_start, default=str)
+        round_list[current_round]['end_time'] = json.dumps(
+            end_start, 
+            default=str
+            )
         return round_list
