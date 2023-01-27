@@ -1,5 +1,6 @@
 """Define the game controller."""
-# from pprint import pprint
+
+import time
 
 from controllers.tournament_controller import TournamentController
 from controllers.player_controller import PlayerController
@@ -54,17 +55,32 @@ class MenuController:
             ReportsController().generate_report_tournaments(tournaments)
         elif user_input == "3":
             self.view.report_tournament()
-            ReportsController().generate_report_tournament(self.tournament)
+            try:
+                ReportsController().generate_report_tournament(self.tournament)
+            except:
+                self.view.miss_loaded()
+                time.sleep(2)
+                self.report_menu()
         elif user_input == "4":
             self.view.report_tournament_players()
-            ReportsController().generate_report_players(
-                self.tournament['players_list']
-                )
+            try:
+                ReportsController().generate_report_players(
+                    self.tournament['players_list']
+                    )
+            except:
+                self.view.miss_loaded()
+                time.sleep(2)
+                self.report_menu()
         elif user_input == "5":
             self.view.report_rounds_tournament()
-            ReportsController().generate_report_rounds_tournament(
-                self.tournament['round_list']
-            )
+            try:
+                ReportsController().generate_report_rounds_tournament(
+                    self.tournament['round_list']
+                )
+            except:
+                self.view.miss_loaded()
+                time.sleep(2)
+                self.report_menu()
         elif user_input == "8":
             self.main_menu()
         elif user_input == "9":
