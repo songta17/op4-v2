@@ -57,7 +57,7 @@ class MenuController:
             self.view.report_tournament()
             try:
                 ReportsController().generate_report_tournament(self.tournament)
-            except:
+            except Exception:
                 self.view.miss_loaded()
                 time.sleep(2)
                 self.report_menu()
@@ -67,7 +67,7 @@ class MenuController:
                 ReportsController().generate_report_players(
                     self.tournament['players_list']
                     )
-            except:
+            except Exception:
                 self.view.miss_loaded()
                 time.sleep(2)
                 self.report_menu()
@@ -77,7 +77,7 @@ class MenuController:
                 ReportsController().generate_report_rounds_tournament(
                     self.tournament['round_list']
                 )
-            except:
+            except Exception:
                 self.view.miss_loaded()
                 time.sleep(2)
                 self.report_menu()
