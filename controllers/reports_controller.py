@@ -1,5 +1,4 @@
 """Define the reports controller."""
-import time
 
 from prettytable import PrettyTable
 from views.report_views import ReportViews
