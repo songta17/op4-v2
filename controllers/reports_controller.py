@@ -1,13 +1,15 @@
 """Define the reports controller."""
+import time
+
 from prettytable import PrettyTable
 from views.report_views import ReportViews
 
 
 class ReportsController:
     """Reports controller."""
-
     def __init__(self):
         self.report = PrettyTable()
+        self.views = ReportViews
 
     # MENU REPORT [1]
     def create_players_tournaments_table(self):
@@ -152,7 +154,7 @@ class ReportsController:
                 s1 = rounds_list[i]['matchs_list'][int(y)]['score_player_1']
                 p2 = rounds_list[i]['matchs_list'][int(y)]['player_2_name']
                 s2 = rounds_list[i]['matchs_list'][int(y)]['score_player_2']
-                versus_opponents = ReportViews.show_opponents(p1, s1, p2, s2)
+                versus_opponents = self.views.show_opponents(p1, s1, p2, s2)
 
                 self.report.add_row([
                     "",

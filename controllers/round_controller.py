@@ -37,18 +37,12 @@ class RoundController:
             print("error save round")
             time.sleep(3)
             MenuViews.redirect_to_menu_msg()
-
-        # self.database.table_tournaments.update(
-        #     {'round_list': round.serialize_round()}
-        # )
         return round.serialize_round()
 
     def update_round(current_round):
         return current_round + 1
 
     def ranking(players):
-        # trier les joueurs en fonction de leur
-        # resultats dans le tournoi en cours
         return sorted(
             players,
             key=lambda player: player['score'],
