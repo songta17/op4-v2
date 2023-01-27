@@ -60,5 +60,5 @@ class ReportViews(MenuViews):
         return p1 + "(" + str(s1) + ")" + " VS " + p2 + "(" + str(s2) + ")"
 
     def miss_loaded():
-        print("Error: None tournament was loaded. \
-            You will be redirected to the report menu now.")
+        print("Error: None tournament was loaded.")
+        print("You will be redirected to the report menu now.")
