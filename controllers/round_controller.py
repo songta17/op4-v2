@@ -69,6 +69,7 @@ class RoundController:
                     new_score = old_score + point_p2
                     break
             old_score = new_score
+            tournament['players_list'][i]['score'] = new_score
         return tournament['players_list']
 
     def players_rank_order(sorted_players):

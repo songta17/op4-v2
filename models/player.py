@@ -1,6 +1,5 @@
 """Define player."""
 import json
-import random
 
 
 class Player:
@@ -11,7 +10,7 @@ class Player:
         self.lastname = lastname
         self.firstname = firstname
         self.dob = dob
-        self.score = 0.0 # random.randint(0, 10)  # 0.0
+        self.score = 0.0
         self.opponents = []
 
     def __repr__(self, *args, **kwargs):
