@@ -104,13 +104,11 @@ class MenuController:
             if self.step_access is False and \
                     len(self.tournament['players_list']) > 0 and \
                     self.tournament['current_round'] < 5:
-                print(f"=> Add results of the round \
-                    {self.tournament['current_round']} - Press [4]")
+                print("=> Add results of the round - Press [4]")
             elif self.step_access is True and \
                     len(self.tournament['players_list']) > 0 and \
                     self.tournament['current_round'] < 5:
-                print(f"=> Please generate pairs for matchs \
-                    (Round {self.tournament['current_round']}) - Press [3]")
+                print("=> Please generate pairs for matchs - Press [3]")
         except Exception:
             print("\nCurrent Tournament Name: None")
         db = self.database
